@@ -33,7 +33,6 @@ const createApp = (TheApp) => {
 			return <TheApp />
 		}
 	}
-
 	return Main
 }
 
