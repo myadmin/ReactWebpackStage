@@ -14,7 +14,7 @@
 		"clear": "rimraf dist",
 		"build": "npm run clear && npm run build:client && npm run build:server",
 		"start_dev": "cross-env NODE_ENV=production node server.js",
-		"start": "node server.js"
+		"start": "NODE_ENV=production node server.js"
 	},
 	"author": "",
 	"license": "ISC",
