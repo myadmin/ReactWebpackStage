@@ -33,10 +33,10 @@ if (!isDev) {
 
     app.get('*', function (req, res, next) {
 		serverRender(serverEntry, template, req, res).catch(next)
-    });
+    })
 } else {
     const devStatic = require('./util/dev.static')
-    devStatic(app);
+    devStatic(app)
 }
 
 app.use(function (error, req, res, next) {
@@ -44,4 +44,4 @@ app.use(function (error, req, res, next) {
 	res.status(500).send(error)
 })
 
-module.exports = app;
+module.exports = app
