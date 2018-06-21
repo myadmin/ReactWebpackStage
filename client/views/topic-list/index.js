@@ -1,13 +1,49 @@
 import React from 'react'
+import {observer, inject} from 'mobx-react'
+import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
+import {AppState} from '../../store/app-state'
 
+@inject('appState')
+@observer
 export default class TopicList extends React.Component {
-  componentDidMount() {
-    // do something here
-  }
+	constructor(props) {
+		super(props)
 
-  render() {
-    return (
-      <div>This is topic list</div>
-    )
-  }
+		this.changeName = this.changeName.bind(this)
+	}
+
+	componentDidMount() {
+		// do something here
+	}
+
+	bootstrap() {
+		return new Promise((resolve) => {
+			setTimeout(() => {
+				this.props.appState.count = 3
+				resolve(true)
+			})
+		})
+	}
+
+	changeName(event) {
+		this.props.appState.changeName(event.target.value)
+	}
+
+	render() {
+		return (
+			<div>
+				<Helmet>
+					<title>This is topic list</title>
+					<meta name="description" content="This is description"/>
+				</Helmet>
+				<input type="text" onChange={this.changeName}/>
+				{this.props.appState.msg}
+			</div>
+		)
+	}
+}
+
+TopicList.propTypes = {
+	appState: PropTypes.instanceOf(AppState),
 }

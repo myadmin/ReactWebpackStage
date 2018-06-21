@@ -9,13 +9,12 @@ export default class App extends React.Component {
 
   render() {
     return [
-      <div key={0}>
+      <div key="banner">
         <Link to="/">首页</Link>
         <br />
         <Link to="/detail">详情页</Link>
       </div>,
-      <Routes key={1} />,
+      <Routes key="Routes" />,
     ]
   }
 }
-
