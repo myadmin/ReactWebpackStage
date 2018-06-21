@@ -44,6 +44,4 @@ app.use(function (error, req, res, next) {
 	res.status(500).send(error)
 })
 
-app.listen(3003, function () {
-    console.log('server is run on 3003');
-})
+module.exports = app;

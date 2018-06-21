@@ -3,14 +3,17 @@
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
+	"engines": {
+		"node": "8.x"
+	},
 	"scripts": {
 		"build:client": "webpack --config build/webpack.config.client.js",
 		"build:server": "webpack --config build/webpack.config.server.js",
 		"dev:client": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.client.js",
-		"dev:server": "nodemon server/server.js",
+		"dev:server": "nodemon server.js",
 		"clear": "rimraf dist",
 		"build": "npm run clear && npm run build:client && npm run build:server",
-		"start": "cross-env NODE_ENV=production node server/server.js"
+		"start": "cross-env NODE_ENV=production node server.js"
 	},
 	"author": "",
 	"license": "ISC",
@@ -21,6 +24,8 @@
 		"ejs-compiled-loader": "^1.1.0",
 		"express": "^4.16.3",
 		"express-session": "^1.15.6",
+		"leancloud-storage": "^3.7.3",
+		"leanengine": "^3.2.0",
 		"mobx": "^5.0.3",
 		"mobx-react": "^5.2.3",
 		"prop-types": "^15.6.2",
