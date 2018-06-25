@@ -1,11 +1,14 @@
 import React from 'react'
-import {StaticRouter} from 'react-router-dom'
-import {Provider, useStaticRendering} from 'mobx-react'
-import {JssProvider} from 'react-jss'
-import {MuiThemeProvider} from '@material-ui/core/styles'
+import { StaticRouter } from 'react-router-dom'
+import {
+	Provider,
+	useStaticRendering,
+} from 'mobx-react'
+import { JssProvider } from 'react-jss'
+import { MuiThemeProvider } from '@material-ui/core/styles'
 import App from './views/App'
 
-import {createStoreMap} from './store/store'
+import { createStoreMap } from './store/store'
 
 useStaticRendering(true)
 
@@ -21,4 +24,4 @@ export default (stores, routerContext, sheetsRegistry, generateClassName, theme,
 	</Provider>
 )
 
-export {createStoreMap}
+export { createStoreMap }

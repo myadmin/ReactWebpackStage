@@ -4,20 +4,20 @@ import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'mobx-react'
 import { AppContainer } from 'react-hot-loader' //eslint-disable-line
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
-import { lightBlue, pink } from  '@material-ui/core/colors'
+import { lightBlue, pink } from '@material-ui/core/colors'
 import App from './views/App'
-import AppState from './store/app-state'
+import { AppState, TopicStore } from './store/store'
 
 const theme = createMuiTheme({
 	palette: {
 		primary: pink,
 		accent: lightBlue,
-		type: 'light'
-	}
+		type: 'light',
+	},
 })
 
 // const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate
-const initialState = window.__INITIAL_STATE__ || {}
+const initialState = window.__INITIAL_STATE__ || {}	// eslint-disable-line
 
 const createApp = (TheApp) => {
 	class Main extends React.Component {
@@ -36,11 +36,15 @@ const createApp = (TheApp) => {
 	return Main
 }
 
+const appState = new AppState()
+appState.init(initialState.appState)
+const topicStore = new TopicStore(initialState.topicStore)
+
 const root = document.getElementById('root')
 const render = (Component) => {
 	ReactDOM.hydrate(
 		<AppContainer>
-			<Provider appState={new AppState(initialState.appState)}>
+			<Provider appState={appState} topicStore={topicStore}>
 				<BrowserRouter>
 					<MuiThemeProvider theme={theme}>
 						<Component />
