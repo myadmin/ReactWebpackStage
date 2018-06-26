@@ -8,7 +8,7 @@ import Paper from '@material-ui/core/Paper'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Button from '@material-ui/core/Button'
 import IconReply from '@material-ui/icons/Reply'
-import SimpleMDE from 'react-simplemde-editor'
+import SimpleMDE from '../../components/simple-mde'
 
 import Container from '../layout/container'
 import { topicDetailStyle } from './styles'

@@ -8,8 +8,8 @@ AV.init({
 	masterKey: process.env.LEANCLOUD_APP_MASTER_KEY || 'tqufLzj55Hf7azXpr9qSkRTl'
 });
 
-let port = parseInt(3000);
-
-app.listen(port, function () {
-	console.log(`server is run on ${port}`);
+let port = process.env.PORT || '0.0.0.0'
+let host = process.env.HOST || parseInt(3000)
+app.listen(port, host, function () {
+	console.log(`server is run on${host} ${port}`);
 });
