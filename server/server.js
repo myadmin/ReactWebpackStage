@@ -26,7 +26,7 @@ app.use('/api/user', require('./util/handle-login'))
 app.use('/api', require('./util/proxy'))
 
 if (!isDev) {
-	const serverEntry = require('../dist/server-entry')
+	const serverEntry = require('../dist/server-entry.js')
 	const template = fs.readFileSync(path.join(__dirname, '../dist/server.ejs'), 'utf8')
 
 	app.use('/public', express.static(path.join(__dirname, '../dist')))
